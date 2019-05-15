@@ -6,4 +6,5 @@ export class Lutador {
     peso: Number;
     paisOrigem: String;
     dataAtualizacao: Date;
+    categoriaPeso: String;
 }

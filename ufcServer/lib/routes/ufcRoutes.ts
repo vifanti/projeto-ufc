@@ -24,7 +24,17 @@ export class Routes {
             } else {
                 next();
             }                        
-        }, this.lutadorController.getLutadores)        
+        }, this.lutadorController.getLutadores)
+
+        app.route('/lutador/pesquisa')
+        .get((req: Request, res: Response, next: NextFunction) => {
+            // middleware  
+            if(req.query.key !== '4ccc9336b467b9cf58051ea123493ef114eae029'){
+                res.status(401).send('You shall not pass!');
+            } else {
+                next();
+            }                        
+        }, this.lutadorController.pesquisaLutadores)
         
         
         // POST endpoint

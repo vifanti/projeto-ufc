@@ -47,6 +47,16 @@ export class LutadorController{
     
     public getLutadores (req: Request, res: Response) {           
         
+        Lutador.find({},(err, lutador) => {
+            if(err){
+                res.send(err);
+            }
+            res.json(lutador);
+        });  
+    }
+
+    public pesquisaLutadores (req: Request, res: Response) {           
+        
         var query = null;
         
         if (req.query.nome !== undefined) {
@@ -92,7 +102,7 @@ export class LutadorController{
     }
     
     public deleteLutador (req: Request, res: Response) {           
-        Lutador.deleteOne({ _id: req.params.lutadorId }, (err, lutador) => {
+        Lutador.deleteOne({ _id: req.params.lutadorId }, (err) => {
             if(err){
                 res.send(err);
             }

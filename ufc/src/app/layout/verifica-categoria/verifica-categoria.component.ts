@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { CalculoCategoriaService } from '../../services/calculo-categoria.service';
+import { CalculoCategoriaService } from '../../shared/services/calculo-categoria.service';
 
 @Component({
   selector: 'app-verifica-categoria',
@@ -21,9 +21,7 @@ export class VerificaCategoriaComponent implements OnInit {
   }
 
   verificaCategoria(peso, sexo) {
-    console.log(peso);
     this.categoria = this.calcula.verificaCategoria(peso, sexo);
-    console.log(this.categoria);
 
     if (this.categoria != null) {
       this.mostraBloco = true;

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HistoriaUfcComponent } from './historia-ufc.component';
+import { DesenvolvedoresComponent } from './desenvolvedores.component';
 
 const routes: Routes = [
     {
-        path: '', component: HistoriaUfcComponent
+        path: '', component: DesenvolvedoresComponent
     }
 ];
 
@@ -12,5 +12,5 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class HistoriaUfcRoutingModule {
+export class DesenvolvedoresRoutingModule {
 }

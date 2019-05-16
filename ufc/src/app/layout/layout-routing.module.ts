@@ -16,6 +16,7 @@ const routes: Routes = [
             { path: 'verifica-categoria', loadChildren: './verifica-categoria/verifica-categoria.module#VerificaCategoriaModule' },
             { path: 'pesquisa-aleatoria', loadChildren: './pesquisa-aleatoria/pesquisa-aleatoria.module#PesquisaAleatoriaModule' },
             { path: 'historia-ufc', loadChildren: './historia-ufc/historia-ufc.module#HistoriaUfcModule' },
+            { path: 'desenvolvedores', loadChildren: './desenvolvedores/desenvolvedores.module#DesenvolvedoresModule' },
         ]
     }
 ];

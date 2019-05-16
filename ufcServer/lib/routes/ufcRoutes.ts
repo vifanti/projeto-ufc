@@ -26,6 +26,9 @@ export class Routes {
             }                        
         }, this.lutadorController.getLutadores)
 
+        // POST endpoint
+        .post(this.lutadorController.addNewLutador);
+
         app.route('/lutador/pesquisa')
         .get((req: Request, res: Response, next: NextFunction) => {
             // middleware  
@@ -35,10 +38,6 @@ export class Routes {
                 next();
             }                        
         }, this.lutadorController.pesquisaLutadores)
-        
-        
-        // POST endpoint
-        .post(this.lutadorController.addNewLutador);
         
         app.route('/lutador/versus')
         .get(this.lutadorController.getLutadoresAleatorios);

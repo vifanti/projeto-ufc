@@ -1,4 +1,80 @@
-<div>
+<div [@routerTransition]>
+    <app-page-header [heading]="'Adicionar Novo Lutador'" [icon]="'fa-hand-rock-o'"></app-page-header>
+    
+    <form role="form" [formGroup]="formLutador" (ngSubmit)="addLutador(formLutador.value)">
+      
+      <div class="row">
+        
+        <div class="col-lg-6">
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">Nome: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="nome" placeholder="Nome" formControlName="nome">
+              </div>
+            </div>
+          </fieldset>
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">Sexo: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="sexo" placeholder="Sexo" formControlName="sexo">
+              </div>
+            </div>
+          </fieldset>
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">Peso: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="peso" placeholder="Peso" formControlName="peso">
+              </div>
+            </div>
+          </fieldset>
+          
+        </div>
+        
+        <div class="col-lg-6">
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">Idade: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="idade" placeholder="Idade" formControlName="idade">
+              </div>
+            </div>
+          </fieldset>
+          
+          <fieldset class="form-group">
+            <div class="row">
+              <label class="col-lg-4 col-form-label">País de Origem: </label>
+              <div class="col-lg-8">
+                <input class="form-control" name="paisOrigem" placeholder="País de Origem" formControlName="paisOrigem">
+              </div>
+            </div>
+          </fieldset>
+          
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-4">
+              <button type="button" class="btn btn-lg btn-default col-lg-12" routerLink="/lutadores" [routerLinkActive]="['router-link-active']">Voltar</button>
+            </div>
+            <div class="col-lg-4">
+              <button type="submit" [disabled]="!formLutador.valid" class="btn btn-lg btn-danger col-lg-12">Gravar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+<!-- <div>
   <h3>Adicionar Novo Lutador</h3>
 </div>
 <form [formGroup]="formLutador" (ngSubmit)="addLutador(formLutador.value)">
@@ -9,4 +85,4 @@
   <input name="paisOrigem" placeholder="País de Origem" formControlName="paisOrigem">
   
   <button type="submit" [disabled]="!formLutador.valid" >Adicionar</button>
-</form>
+</form> -->

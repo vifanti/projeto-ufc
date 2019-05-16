@@ -7,20 +7,23 @@
 
 @media screen and (min-width: 720px) {
     img {
-        width: 60% !important;
-        height: 60% !important;
+        width: 50% !important;
+        height: 50% !important;
     }
 }
-
 img {
     width: 100%;
     height: 100%;
-    margin-top: 5%;
+    margin-top: 2%;
 }
-
-.versao {
-    position: fixed;
-    padding: 20px;
-    bottom: 0;
+p{
+    text-align: center;
+    margin-top: 5%
 }
-
+.corpo {
+    min-height: 83vh;
+}
+.footer {
+    height: 10px;
+    text-align: center;
+}

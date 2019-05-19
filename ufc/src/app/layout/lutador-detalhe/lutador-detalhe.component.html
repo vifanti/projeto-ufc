@@ -21,8 +21,9 @@
           <fieldset class="form-group">
             <div class="row">
               <label class="col-lg-4 col-form-label">Sexo: </label>
-              <div class="col-lg-8">
-                <input class="form-control" name="sexo" value="{{lutador.sexo}}">
+              <div [ngSwitch]="lutador.sexo" class="col-lg-8">
+                <input *ngSwitchCase="'M'" class="form-control" name="sexo" value="Masculino">
+                <input *ngSwitchCase="'F'" class="form-control" name="sexo" value="Feminino">
               </div>
             </div>
           </fieldset>

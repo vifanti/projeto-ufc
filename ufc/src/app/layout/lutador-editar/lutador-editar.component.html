@@ -11,7 +11,7 @@
           <div class="row">
             <label class="col-lg-4 col-form-label">Nome: </label>
             <div class="col-lg-8">
-              <input class="form-control" name="nome" placeholder="Nome" formControlName="nome">
+              <input class="form-control" name="nome" formControlName="nome">
             </div>
           </div>
         </fieldset>
@@ -20,7 +20,11 @@
           <div class="row">
             <label class="col-lg-4 col-form-label">Sexo: </label>
             <div class="col-lg-8">
-              <input class="form-control" name="sexo" placeholder="Sexo" formControlName="sexo">
+              <select class="form-control" name="sexo" formControlName="sexo">
+                  <option value="" [hidden]="true" [selected]="true"></option>
+                  <option value ='M'>Masculino</option>
+                  <option value ='F'>Feminino</option>
+                </select>
             </div>
           </div>
         </fieldset>

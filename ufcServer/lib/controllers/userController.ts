@@ -6,15 +6,30 @@ import AuthController from "./authController";
 const User = mongoose.model("User", UserSchema);
 
 export class UserController {
-  static listAll = (req: Request, res: Response) => {
-    //Get users from database
-    User.find({}, { projection: { password: 0 } }, (err, users) => {
+  public getUsers(req: Request, res: Response) {
+    User.find({}, (err, user) => {
       if (err) {
         res.send(err);
       }
-      res.json(users);
+      res.json(user);
     });
-  };
+  }
+
+  public searchUsers(req: Request, res: Response) {
+    var query = null;
+
+    if (req.query.name !== undefined) {
+      //regex permite o uso de expressões regulares. i retira a propriedade de case sensitive
+      query = { name: { $regex: req.query.name, $options: "i" } };
+    }
+
+    User.find(query, (err, user) => {
+      if (err) {
+        res.send(err);
+      }
+      res.json(user);
+    });
+  }
 
   public addNewUser(req: Request, res: Response) {
     let newUser = new User(req.body);

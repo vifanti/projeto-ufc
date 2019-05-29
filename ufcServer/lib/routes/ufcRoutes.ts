@@ -44,7 +44,7 @@ export class Routes {
       .route("/lutador/versus")
       .get(this.lutadorController.getLutadoresAleatorios);
 
-    // Lutador detail
+    // Lutador CRUD
     app
       .route("/lutador/:lutadorId")
       // get specific lutador
@@ -52,12 +52,33 @@ export class Routes {
       .put(this.lutadorController.updateLutador)
       .delete(this.lutadorController.deleteLutador);
 
+    //Autenticação
     app.route("/users/authenticate").post(AuthController.login);
 
+    //users
     app
       .route("/users")
+      .get((req: Request, res: Response, next: NextFunction) => {
+        // middleware
+        if (req.query.key !== "4ccc9336b467b9cf58051ea123493ef114eae029") {
+          res.status(401).send("You shall not pass!");
+        } else {
+          next();
+        }
+      }, this.userController.getUsers)
 
       // POST endpoint
       .post(this.userController.addNewUser);
+
+    app
+      .route("/users/search")
+      .get((req: Request, res: Response, next: NextFunction) => {
+        // middleware
+        if (req.query.key !== "4ccc9336b467b9cf58051ea123493ef114eae029") {
+          res.status(401).send("You shall not pass!");
+        } else {
+          next();
+        }
+      }, this.userController.searchUsers);
   }
 }

@@ -17,7 +17,7 @@ class AuthController {
       }
 
       //Get user from database
-      let user: any[];
+      let user;
       user = await User.find({ email: req.body.email });
 
       if (!user) {
@@ -48,11 +48,9 @@ class AuthController {
 
   static generateJWT(user) {
     //Sing JWT, valid for 1 hour
-    return jwt.sign(
-      { userId: user.id, email: user.email },
-      config.jwtSecret,
-      { expiresIn: "1h" }
-    );
+    return jwt.sign({ userId: user.id, email: user.email }, config.jwtSecret, {
+      expiresIn: "1h"
+    });
   }
 }
 export default AuthController;

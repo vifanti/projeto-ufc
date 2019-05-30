@@ -14,7 +14,7 @@ class App {
         allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token"],
         credentials: true,
         methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-        origin: '18.228.24.19:3000',
+        origin: 'localhost:3000',
         preflightContinue: false
       };
 

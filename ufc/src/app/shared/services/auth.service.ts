@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
 
-const apiUrl = 'https://localhost:3000/';
+const apiUrl = 'http://localhost:3000';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,8 +34,9 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<any>(`${apiUrl}users/authenticate`, { email, password })
-    .pipe(map(user => {
+    const api = apiUrl + '/users/authenticate';
+    console.log(api);
+    return this.http.post<any>(api, { 'email': email, 'password': password }).pipe(map(user => {
       // login successful if there's a jwt token in the response
       if (user && user.token) {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
